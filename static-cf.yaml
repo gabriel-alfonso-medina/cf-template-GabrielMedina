@@ -1,0 +1,16 @@
+Resources:
+  Bucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: meds-bucket-2024
+  Instance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: t2.micro
+      ImageId: ami-0866a3c8686eaeeba
+      NetworkInterfaces:
+        - AssociatePublicIpAddress: true
+          DeviceIndex: 0
+          SubnetId: subnet-0ae367782395b4c98  # Replace with your subnet ID
+          GroupSet:
+            - sg-0872c7e10a9d2defd
